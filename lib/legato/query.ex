@@ -6,10 +6,10 @@ defmodule Legato.Query do
       dimensions: %Legato.Query.FilterSet{as: :dimensions}
     }
 
-  defimpl Poison.Encoder, for: __MODULE__ do
+  defimpl Jason.Encoder, for: __MODULE__ do
     def encode(struct, options) do
       # This is the format for GA report json
-      Poison.Encoder.Map.encode(%{
+      Jason.Encoder.Map.encode(%{
         reportRequests: [
           %{
             view_id: to_string(struct.view_id),
@@ -814,5 +814,5 @@ defmodule Legato.Query do
 
   # TODO: validate presence of profile, view_id, metrics, dimensions
 
-  def to_json(query), do: Poison.encode!(query)
+  def to_json(query), do: Jason.encode!(query)
 end

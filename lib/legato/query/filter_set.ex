@@ -1,10 +1,10 @@
 defmodule Legato.Query.FilterSet do
   defstruct operator: :or, filters: [], as: :metrics
 
-  defimpl Poison.Encoder, for: __MODULE__ do
+  defimpl Jason.Encoder, for: __MODULE__ do
     def encode(struct, options) do
       # This is the format for GA report json
-      Poison.Encoder.Map.encode(%{
+      Jason.Encoder.Map.encode(%{
         Legato.Query.FilterSet.filter_clause_key(struct.as) => %{
           filters: Enum.reverse(struct.filters)
         },
@@ -48,7 +48,7 @@ defmodule Legato.Query.FilterSet do
     end
   end
 
-  def to_json(filters), do: Poison.encode!(filters)
+  def to_json(filters), do: Jason.encode!(filters)
 
   def filter_clause_key(:metrics), do: :metricFilterClauses
   def filter_clause_key(:dimensions), do: :dimensionFilterClauses

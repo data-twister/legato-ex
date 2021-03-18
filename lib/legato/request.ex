@@ -4,7 +4,7 @@ defmodule Legato.Request do
 
   def all(query) do
     from_query(query) |>
-      Legato.Client.post |>
+      Legato.Client.send |>
       Legato.Response.build
   end
 

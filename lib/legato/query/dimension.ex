@@ -1,5 +1,5 @@
 defmodule Legato.Query.Dimension do
-  @derive [Poison.Encoder]
+  @derive [Jason.Encoder]
   defstruct name: nil, histogram_buckets: []
 
   @doc ~S"""

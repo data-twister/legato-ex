@@ -1,3 +1,11 @@
+## Legato 0.2.1 ##
+
+* Switch deps to tesla
+* Switch deps to jason
+* bump httpoison
+
+*Jason Clark*
+
 ## Legato 0.2.0 ##
 
 * Add filters

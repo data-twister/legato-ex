@@ -1,6 +1,6 @@
 defmodule Legato.Response do
   def build({:ok, %HTTPoison.Response{body: body, headers: _headers}}) do
-    Poison.decode!(body) |> as_report
+    Jason.decode!(body) |> as_report
   end
 
   defp as_report(%{"error" => errors}) do

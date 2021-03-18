@@ -3,11 +3,11 @@ defmodule Legato.Mixfile do
 
   def project do
     [app: :legato,
-     version: "0.2.0",
-     elixir: "~> 1.3",
+     version: "0.2.1",
+      elixir: "~> 1.7",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-     source_url: "https://github.com/tpitale/legato-ex",
+     source_url: "https://github.com/data-twister/legato-ex",
      description: description(),
      package: package(),
      deps: deps()]
@@ -23,17 +23,18 @@ defmodule Legato.Mixfile do
 
   defp package do
     [
-      maintainers: ["Tony Pitale"],
+      maintainers: ["Tony Pitale, Jason Clark"],
       licenses: ["MIT"],
-      links: %{"Github" => "https://github.com/tpitale/legato-ex"}
+      links: %{"Github" => "https://github.com/data-twister/legato-ex"}
     ]
   end
 
   defp deps do
     [
-      {:ex_doc, ">= 0.0.0", only: :dev},
-      {:httpoison, "~> 0.9.0"},
-      {:poison, "~> 2.0"}
+    {:tesla, "~> 1.4.0"},
+     {:httpoison, "~> 1.8"},
+    {:jason, ">= 1.0.0"},
+    {:ex_doc, ">= 0.0.0", only: :dev}
     ]
   end
 end

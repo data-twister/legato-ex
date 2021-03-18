@@ -1,9 +1,14 @@
 defmodule Legato.Client do
-  @url "https://analyticsreporting.googleapis.com/v4/reports:batchGet"
+  @url "/v4/reports:batchGet"
 
-  def post(request) do
-    HTTPoison.post @url, request.body, [
-      {"Authorization", "Bearer #{request.access_token}"}
+  def send(request) do
+    middleware = [
+      {Tesla.Middleware.BaseUrl, "https://analyticsreporting.googleapis.com"},
+      Tesla.Middleware.JSON,
+      {Tesla.Middleware.Headers, [{"Authorization", "Bearer " <> request.access_token }]}
     ]
+
+    Tesla.client(middleware)
   end
+
 end

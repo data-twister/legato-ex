@@ -1,5 +1,5 @@
 defmodule Legato.Query.DateRange do
-  @derive [Poison.Encoder]
+  @derive [Jason.Encoder]
   defstruct start_date: nil, end_date: nil # strings, YYYY-MM-DD
 
   def add(date_ranges, start_date, end_date) do

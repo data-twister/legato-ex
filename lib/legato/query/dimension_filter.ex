@@ -11,10 +11,10 @@ defmodule Legato.Query.DimensionFilter do
   #   ],
   #   "caseSensitive": boolean,
   # }
-  defimpl Poison.Encoder, for: __MODULE__ do
+  defimpl Jason.Encoder, for: __MODULE__ do
     def encode(struct, options) do
       # This is the format for GA report json
-      Poison.Encoder.Map.encode(%{
+      Jason.Encoder.Map.encode(%{
         dimension_name: struct.dimension_name,
         operator: struct.operator,
         expressions: struct.expressions,
@@ -24,5 +24,5 @@ defmodule Legato.Query.DimensionFilter do
     end
   end
 
-  def to_json(filter), do: Poison.encode!(filter)
+  def to_json(filter), do: Jason.encode!(filter)
 end

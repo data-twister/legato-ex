@@ -1,5 +1,5 @@
 defmodule Legato.Query.Segment do
-  @derive [Poison.Encoder]
+  @derive [Jason.Encoder]
   defstruct segment_id: nil
 
   @id_prefix "gaid"

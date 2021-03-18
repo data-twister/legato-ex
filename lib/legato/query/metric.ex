@@ -1,5 +1,5 @@
 defmodule Legato.Query.Metric do
-  @derive [Poison.Encoder]
+  @derive [Jason.Encoder]
   defstruct expression: nil, alias: nil, formatting_type: nil
 
   # formatting type is (INTEGER, FLOAT, CURRENCY, PERCENT, TIME)
